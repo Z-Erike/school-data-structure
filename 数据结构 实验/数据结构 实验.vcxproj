@@ -18,6 +18,25 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="实验一 线性结构.cpp" />
+    <ClCompile Include="实验七 二叉树的应用.cpp" />
+    <ClCompile Include="实验九 排序.cpp" />
+    <ClCompile Include="实验二 链式结构.cpp" />
+    <ClCompile Include="实验五 串.cpp" />
+    <ClCompile Include="实验八 图.cpp" />
+    <ClCompile Include="实验六 树与二叉树.cpp" />
+    <ClCompile Include="实验四 队列.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LinkList.h" />
+    <ClInclude Include="LinkQueue.h" />
+    <ClInclude Include="LinkStack.h" />
+    <ClInclude Include="SqList.h" />
+    <ClInclude Include="SqQueue.h" />
+    <ClInclude Include="SqStack.h" />
+    <ClInclude Include="实验三 栈.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{AAD07180-10AB-44FF-8F68-772414409DDF}</ProjectGuid>
@@ -110,8 +129,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

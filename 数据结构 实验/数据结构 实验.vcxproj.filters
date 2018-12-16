@@ -13,5 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\章节">
+      <UniqueIdentifier>{58c6cf31-1f24-47c1-9458-3e132e0142c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="实验一 线性结构.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验二 链式结构.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验四 队列.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验五 串.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验六 树与二叉树.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验七 二叉树的应用.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验八 图.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+    <ClCompile Include="实验九 排序.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SqList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="实验三 栈.cpp">
+      <Filter>源文件\章节</Filter>
+    </ClInclude>
+    <ClInclude Include="SqStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SqQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
