@@ -358,3 +358,150 @@ int main()
 	system("pause");
 	return 0;
 }
+
+//+++++++++++++++++++++++++++++++++++++++哈希表++++++++++++++++++++++++++++++++++++++++//
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+#include <windows.h>
+
+#define MAXSIZE 100 //最大哈希表
+#define NULLKEY -1 //空关键字值
+#define DELKEY -2  //定义被删关键字值
+typedef int KeyType;
+typedef char InfoType;
+
+typedef struct node
+{
+	KeyType key;
+	InfoType data;
+	int count;
+}HashTable[MAXSIZE];
+
+//将k插入到哈希表中
+int InsertHT(HashTable ha, int n, KeyType k, int p)
+{
+	int i, adr;
+	adr = k % p;
+	if (ha[adr].key == NULLKEY || ha[adr].key == DELKEY)
+	{
+		ha[adr].key = k;
+		ha[adr].count = 1;
+	}
+	else //发生冲突时采用线性探测法解决冲突
+	{
+		i = 0;
+		do
+		{
+			adr = (adr + 1) % p;
+			i++;
+		} while (ha[adr].key != NULLKEY && ha[adr].key != DELKEY);
+		ha[adr].key = k;
+		ha[adr].count = i;
+	}
+	n++;
+	return n;
+}
+
+//创建哈希表
+void CreateHT(HashTable ha, KeyType x[], int n, int m, int p)
+{
+	int i, n1 = 0;
+	for (i = 0; i < m; i++)
+	{
+		ha[i].key = NULLKEY;
+		ha[i].count = 0;
+	}
+	for (i = 0; i < n; i++)
+		n1 = InsertHT(ha, n1, x[i], p);
+}
+
+//哈希表查找关键字k
+int SearchHT(HashTable ha, int p, KeyType k)
+{
+	int i = 0, adr;
+	adr = k % p;
+	while (ha[adr].key != NULLKEY && ha[adr].key != k)
+	{
+		i++;
+		adr = (adr + 1) % p;
+	}
+	if (ha[adr].key == k)
+		return adr;
+	else
+		return -1;
+}
+
+//删除哈希表中关键字
+int DeleteHT(HashTable ha, int p, int k, int n)
+{
+	int adr;
+	adr = SearchHT(ha, p, k);
+	if (adr != -1)
+	{
+		ha[adr].key = DELKEY;
+		n--;
+		return n;
+	}
+	else
+		return 0;
+}
+
+//输出哈希表
+void DispHT(HashTable ha, int n, int m)
+{
+	float avg = 0;
+	int i;
+	printf("哈希表地址：\t");
+	for (i = 0; i < m; i++)
+		printf("%3d", i);
+	printf("\n");
+	printf("哈希表关键字：\t");
+	for (i = 0; i < m; i++)
+		if (ha[i].key == NULLKEY || ha[i].key == DELKEY)
+			printf("   ");
+		else
+			printf("%3d", ha[i].key);
+	printf("\n");
+	printf("搜索次数：\t");
+	for (i = 0; i < m; i++)
+		if (ha[i].key == NULLKEY || ha[i].key == DELKEY)
+			printf("   ");
+		else
+			printf("%3d", ha[i].count);
+	printf("\n");
+	for (i = 0; i < m; i++)
+		if (ha[i].key != NULLKEY && ha[i].key != DELKEY)
+			avg = avg + ha[i].count;
+	avg = avg / n;
+	printf("平均搜索长度ASL(%d)=%g\n", n, avg);
+}
+int main()
+{
+	int x[] = { 16,74,60,43,54,90,46,31,29,88,77 };
+	int n = 11, m = 13, p = 13, i, k = 29, n1;
+	HashTable ha;
+	CreateHT(ha, x, n, m, p);
+	printf("\n");
+	DispHT(ha, n, m);
+	i = SearchHT(ha, p, k);
+	if (i != -1)
+		printf("ha[%d].key=%d\n", i, k);
+	else
+		printf("未找到%d\n", k);
+	k = 77;
+	printf("删除关键字%d\n", k);
+	n1 = DeleteHT(ha, p, k, n);
+	DispHT(ha, n1, m);
+	i = SearchHT(ha, p, k);
+	if (i != -1)
+		printf("ha[%d].key=%d\n", i, k);
+	else
+		printf("未找到%d\n", k);
+	printf("插入关键字%d\n", k);
+	n1 = InsertHT(ha, n1, k, p);
+	DispHT(ha, n1, m);
+	printf("\n");
+	system("pause");
+	return 0;
+}
