@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="实验一 线性结构.cpp" />
     <ClCompile Include="实验七 二叉树的应用.cpp" />
-    <ClCompile Include="实验九 排序.cpp" />
+    <ClCompile Include="实验九 查找.cpp" />
     <ClCompile Include="实验二 链式结构.cpp" />
     <ClCompile Include="实验五 串.cpp" />
     <ClCompile Include="实验八 图.cpp" />

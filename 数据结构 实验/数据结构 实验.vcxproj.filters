@@ -39,7 +39,7 @@
     <ClCompile Include="实验八 图.cpp">
       <Filter>源文件\章节</Filter>
     </ClCompile>
-    <ClCompile Include="实验九 排序.cpp">
+    <ClCompile Include="实验九 查找.cpp">
       <Filter>源文件\章节</Filter>
     </ClCompile>
   </ItemGroup>
