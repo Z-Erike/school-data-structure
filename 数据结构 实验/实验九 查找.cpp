@@ -104,3 +104,60 @@ int main()
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++二分查找++++++++++++++++++++++++++++++++++++++++++++++++++//
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+
+#define MAXL 100
+typedef int KeyType;
+typedef char InfoType[10];
+
+typedef struct
+{
+	KeyType key;
+	InfoType data;
+}NodeType;
+
+typedef NodeType SeqList[MAXL];
+
+/*二分查找*/
+int BinSearch(SeqList R, int n, KeyType k)
+{
+	int left = 0, right = n - 1, mid, count = 0;
+	while (left < right)
+	{
+		mid = (left + right) / 2;
+		printf("第%d次查找：在【%d，%d】中查找到元素R[%d]:%d\n",
+			++count, left, right, mid, R[mid].key);
+		if (R[mid].key == k)
+			return mid;
+		if (R[mid].key > k)
+			right = mid - 1;
+		else
+			left = mid + 1;
+	}
+	return 0;
+}
+
+///////////////主函数////////////////
+int main()
+{
+	SeqList R;
+	int n, i;
+	KeyType k;
+	printf("请输入表长:");
+	scanf_s("%d", &n);
+	printf("请输入要查找的关键字:");
+	scanf_s("%d", &k);
+	printf("请输入%d个关键字:\n", n);
+	for (i = 1; i <= n; i++)
+		scanf_s("%d", &R[i].key);
+	if ((i = BinSearch(R, n, k)) != 0)
+		printf("\n元素%d的位置是:%d\n", k, i);
+	else
+		printf("\n元素%d不在表中！\n", k);
+	system("pause");
+	return 0;
+}
+
+//+++++++++++++++++++++++++++++++++++++++二叉排序树++++++++++++++++++++++++++++++++++++++//
